@@ -1,6 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
+const withServiceWorker = require('next-service-worker');
 
-module.exports = nextConfig
+/** @type {import('next').NextConfig} */
+
+module.exports = withServiceWorker({
+  reactStrictMode: true,
+  serviceWorker: {
+    // service worker config here...
+
+    workbox: {
+      // workbox config here...
+    },
+  },
+});
