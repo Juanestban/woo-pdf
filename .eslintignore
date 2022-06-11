@@ -1,3 +1,5 @@
 .eslintcache
 .prettierignore
 .husky
+yarn.lock
+package-lock.json
