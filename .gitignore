@@ -36,3 +36,9 @@ yarn-error.log*
 
 ### lints cache | error
 .eslintcache
+
+### next pwa
+sw.js
+sw.js.*
+workbox-*.js
+workbox-*.js.*
