@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "gc": "node ./scripts/components.js",
     "prepare": "husky install"
   },
   "dependencies": {
+    "classnames": "2.3.1",
     "next": "12.1.6",
     "next-pwa": "5.5.4",
     "react": "18.1.0",
