@@ -1,9 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import { useTheme } from '../contexts';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +21,9 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+          <button className={styles.button} onClick={toggleTheme}>
+            toggle {theme}
+          </button>
         </p>
 
         <div className={styles.grid}>

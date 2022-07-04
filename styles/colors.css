@@ -1,9 +1,16 @@
 body[data-theme='light'] {
   --gradiant: rgba(79, 91, 98, 0.5);
-  --text-color: var(--white);
+  --text-color: var(--black);
+  --body-background-color: var(--primary-light);
 }
 
 body[data-theme='dark'] {
   --gradiant: rgba(79, 91, 98, 0.5);
   --text-color: var(--white);
+  --body-background-color: var(--primary-dark);
+}
+
+body {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
 }

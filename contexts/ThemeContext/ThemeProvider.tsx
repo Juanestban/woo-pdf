@@ -26,7 +26,6 @@ const ThemeContext = createContext<ThemeContextProps>({
 function ThemeProvider({ children }: ThemeProviderProps) {
   const isDarkModeSO = window.matchMedia('(prefers-color-scheme:dark)').matches;
   const [theme, setTheme] = useState<Theme>(() => {
-    console.log(isDarkModeSO);
     const item = window.localStorage.getItem(storage.local.theme);
 
     if (item === null) return isDarkModeSO ? 'dark' : 'light';
@@ -34,7 +33,14 @@ function ThemeProvider({ children }: ThemeProviderProps) {
     return item !== 'dark' ? 'light' : 'dark';
   });
 
-  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+  const toggleTheme = () => {
+    setTheme((prevTheme) => {
+      const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
+      window.localStorage.setItem(storage.local.theme, newTheme);
+
+      return newTheme;
+    });
+  };
 
   useEffect(() => {
     const body = window.document.querySelector('body');
