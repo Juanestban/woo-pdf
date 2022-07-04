@@ -1,4 +1,12 @@
 :root {
+  --black: black;
+  --white: white;
+  --primary-light: #4f5b62;
+  --primary-dark: #000a12;
+  --primary: #263238;
+  --secondary: #026a82;
+  --secondary-light: #4a98b2;
+  --secondary-dark: #003f55;
   --font-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }

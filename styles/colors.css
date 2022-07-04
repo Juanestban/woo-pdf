@@ -1,0 +1,9 @@
+body[data-theme='light'] {
+  --gradiant: rgba(79, 91, 98, 0.5);
+  --text-color: var(--white);
+}
+
+body[data-theme='dark'] {
+  --gradiant: rgba(79, 91, 98, 0.5);
+  --text-color: var(--white);
+}
