@@ -1,11 +1,26 @@
+import { ChangeEvent } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { useTheme } from '../contexts';
-import styles from '../styles/Home.module.css';
+import { usePdfViewContext, useTheme } from '@woo-pdf/contexts';
+import { Pdf } from '../components';
+
+import styles from '@woo-pdf/styles/Home.module.css';
 
 const Home: NextPage = () => {
   const { theme, toggleTheme } = useTheme();
+  const { init } = usePdfViewContext();
+
+  const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    console.log('handleChange');
+
+    if (!!files && files.length > 0) {
+      const file = files[0];
+      init(file);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,6 +33,20 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <input
+          type="file"
+          style={{
+            width: 100,
+            height: 40,
+            backgroundColor: '#09f',
+            padding: 5,
+            color: 'white',
+          }}
+          onChange={handleChangeFile}
+        />
+
+        <Pdf />
 
         <p className={styles.description}>
           Get started by editing{' '}
