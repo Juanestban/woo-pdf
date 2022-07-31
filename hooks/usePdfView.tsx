@@ -14,7 +14,7 @@ type PdfViewPage = {
 };
 
 export const INITIAL_STATE_PDF_VIEW = {
-  currentPage: 0,
+  currentPage: 1,
   lastPage: 0,
   firstPage: 0,
 };
@@ -28,25 +28,25 @@ type FilePdf =
 export type CustomHookPdfView = Partial<PdfViewHook> & {
   init: (file: File) => void;
   page: PdfViewPage;
-  handlePage: (name: string, value: number) => void;
 };
 
 export const usePdfView = (): CustomHookPdfView => {
   const [page, setPage] = useState<PdfViewPage>(INITIAL_STATE_PDF_VIEW);
   const [pdf, setPdf] = useState<FilePdf>(undefined);
 
-  const handleNavigation = useCallback(
-    (isNextPage?: boolean) => () => {
-      setPage({
-        ...page,
-        currentPage: isNextPage ? page.currentPage++ : page.currentPage--,
-      });
-    },
-    [page]
-  );
+  const handleNavigation = (isNextPage?: boolean) => () => {
+    const conditional = isNextPage
+      ? page.currentPage + 1
+      : page.currentPage - 1;
 
-  const handlePage = (name: string, value: any) =>
-    setPage({ ...page, [name]: value });
+    setPage({
+      ...page,
+      currentPage: conditional,
+    });
+  };
+
+  const handleGoToPage = (value: number) =>
+    setPage({ ...page, currentPage: value });
 
   const init = useCallback((file: File) => {
     if (file.type === 'application/pdf') {
@@ -79,10 +79,12 @@ export const usePdfView = (): CustomHookPdfView => {
       ),
       nextPage: handleNavigation(true),
       prevPage: handleNavigation(),
-      goTo: () => {},
+      goTo: handleGoToPage,
     }),
-    [pdf, page, handleNavigation]
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [pdf, page]
   );
 
-  return { init, ...memo, page, handlePage };
+  return { init, ...memo, page };
 };

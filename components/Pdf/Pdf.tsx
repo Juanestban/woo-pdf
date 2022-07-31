@@ -8,19 +8,14 @@ interface PdfProps {
 }
 
 const Pdf: FC<PdfProps> = () => {
-  const { view, page, handleChange } = usePdfViewContext();
+  const { view, page, handleChange, nextPage, prevPage } = usePdfViewContext();
 
   return (
     <div className={cn(s.container)}>
       <div style={{ display: 'flex' }}>
-        <button>- previous</button>
-        <input
-          type="text"
-          name=""
-          value={page.currentPage}
-          onChange={handleChange}
-        />
-        <button>+ next</button>
+        <button onClick={prevPage}>- previous</button>
+        <input type="text" value={page.currentPage} onChange={handleChange} />
+        <button onClick={nextPage}>+ next</button>
       </div>
       {view}
     </div>
