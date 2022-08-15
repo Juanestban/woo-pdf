@@ -21,5 +21,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'no-useless-return': 0,
+    'no-undef': 0,
+    'react/display-name': 0,
   },
 };
