@@ -32,6 +32,12 @@
 
   /* radius */
   --woo-radius-button: 5px;
+
+  /* weight */
+  --woo-font-weight-light: 100;
+  --woo-font-weight-normal: 400;
+  --woo-font-weight-semi-bold: 600;
+  --woo-font-weight-bold: 800;
 }
 
 *,

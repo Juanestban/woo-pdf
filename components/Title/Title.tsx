@@ -1,17 +1,46 @@
-import { FC } from 'react';
+import {
+  createElement,
+  forwardRef,
+  FC,
+  DetailedHTMLProps,
+  HTMLAttributes,
+} from 'react';
 import cn from 'classnames';
 
 import s from './Title.module.css';
 
-interface TitleProps {
+type PrimitiveTitleElement = HTMLHeadingElement;
+
+type PrimitiveTitle = DetailedHTMLProps<
+  HTMLAttributes<PrimitiveTitleElement>,
+  PrimitiveTitleElement
+>;
+
+interface TitleProps extends PrimitiveTitle {
   // props from components
+  tag?: 'h1' | 'h2' | 'h3' | 'h4';
+  weight?: 'light' | 'normal' | 'semi-bold' | 'bold';
 }
 
-const Title: FC<TitleProps> = (props) => {
-  const title = "hello, I'm component";
+const Title = forwardRef<PrimitiveTitle, TitleProps>(
+  (
+    { tag = 'h2', className, weight = 'semi-bold', children, ...props },
+    ref
+  ) => {
+    const TitlesWrapper = (props: any) =>
+      createElement(tag, props, props.children);
 
-  return <div className={cn(s.container)}>{title}</div>;
-};
+    return (
+      <TitlesWrapper
+        ref={ref}
+        className={cn(s.container, s[`weight-${weight}`], className)}
+        {...props}
+      >
+        {children}
+      </TitlesWrapper>
+    );
+  }
+) as FC<TitleProps>;
 
 export default Title;
 export type { TitleProps };

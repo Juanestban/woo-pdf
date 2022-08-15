@@ -1,9 +1,13 @@
-.container {
-  border: 1px solid #09f;
-  padding: 20px;
+.containerFolders {
+  padding: 20px 0px;
   display: grid;
   gap: 1rem;
   grid-auto-flow: dense;
   grid-auto-rows: 65px;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+}
+
+.titleFolder {
+  margin: 0;
+  margin-left: var(--woo-margin-20);
 }
