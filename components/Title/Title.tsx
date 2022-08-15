@@ -6,6 +6,7 @@ import {
   HTMLAttributes,
 } from 'react';
 import cn from 'classnames';
+import { Weight } from '@woo-pdf/models';
 
 import s from './Title.module.css';
 
@@ -19,7 +20,7 @@ type PrimitiveTitle = DetailedHTMLProps<
 interface TitleProps extends PrimitiveTitle {
   // props from components
   tag?: 'h1' | 'h2' | 'h3' | 'h4';
-  weight?: 'light' | 'normal' | 'semi-bold' | 'bold';
+  weight?: Weight;
 }
 
 const Title = forwardRef<PrimitiveTitle, TitleProps>(
@@ -33,7 +34,7 @@ const Title = forwardRef<PrimitiveTitle, TitleProps>(
     return (
       <TitlesWrapper
         ref={ref}
-        className={cn(s.container, s[`weight-${weight}`], className)}
+        className={cn(s.container, `font-${weight}`, className)}
         {...props}
       >
         {children}

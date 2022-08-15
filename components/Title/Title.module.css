@@ -2,19 +2,3 @@
   font-family: var(--font-stack);
   font-size: var(--woo-large-size);
 }
-
-.weight-light {
-  font-weight: var(--woo-font-weight-light);
-}
-
-.weight-normal {
-  font-weight: var(--woo-font-weight-normal);
-}
-
-.weight-semi-bold {
-  font-weight: var(--woo-font-weight-semi-bold);
-}
-
-.weight-bold {
-  font-weight: var(--woo-font-weight-bold);
-}

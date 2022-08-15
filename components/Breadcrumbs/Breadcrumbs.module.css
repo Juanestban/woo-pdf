@@ -1,3 +1,28 @@
 .container {
-  border: 1px solid #09f;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: var(--woo-margin-20);
+  border-bottom: 1px solid var(--primary-light);
+  margin-bottom: var(--woo-margin-20);
+}
+
+.buttonBreadcrumb {
+  max-width: calc(100px + 20px);
+  display: flex;
+  align-items: center;
+  padding: var(--woo-margin-05) 0;
+}
+
+.container .buttonBreadcrumb:nth-last-child(1)::after {
+  display: none;
+}
+
+.container .buttonBreadcrumb button {
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+  padding: 4px 8px;
 }

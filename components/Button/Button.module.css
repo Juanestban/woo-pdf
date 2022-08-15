@@ -1,3 +1,38 @@
-.container {
-  border: 1px solid #09f;
+.button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--white-color);
+  font-size: var(--woo-regular-size);
+  border-radius: 5px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+/* variant normal */
+.button.normal {
+  background-color: #09f;
+  border-color: transparent;
+}
+
+.button.normal:hover {
+  background-color: #09ff09;
+  border-color: transparent;
+}
+
+/* variant ghost */
+.button.ghost {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.button.ghost:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button {
+  transition: background-color, border-color 500ms ease;
+}
+
+.button:hover {
+  transition: background-color, border-color 500ms ease;
 }

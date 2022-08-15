@@ -11,6 +11,7 @@
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   /* fonts size */
+  --woo-x-small-size: 10px;
   --woo-small-size: 14px;
   --woo-normal-size: 16px;
   --woo-large-size: 18px;
@@ -34,8 +35,8 @@
   --woo-radius-button: 5px;
 
   /* weight */
-  --woo-font-weight-light: 100;
-  --woo-font-weight-normal: 400;
+  --woo-font-weight-thin: 200;
+  --woo-font-weight-regular: 400;
   --woo-font-weight-semi-bold: 600;
   --woo-font-weight-bold: 800;
 }
@@ -60,4 +61,20 @@ a {
 
 li {
   list-style: none;
+}
+
+.font-thin {
+  font-weight: var(--woo-font-weight-thin);
+}
+
+.font-regular {
+  font-weight: var(--woo-font-weight-regular);
+}
+
+.font-semi-bold {
+  font-weight: var(--woo-font-weight-semi-bold);
+}
+
+.font-bold {
+  font-weight: var(--woo-font-weight-bold);
 }

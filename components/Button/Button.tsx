@@ -1,17 +1,41 @@
-import { FC } from 'react';
+import { FC, DetailedHTMLProps, ButtonHTMLAttributes, forwardRef } from 'react';
 import cn from 'classnames';
 
 import s from './Button.module.css';
+import { Weight } from '@woo-pdf/models';
 
-interface ButtonProps {
+type PrimitiveButton = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
+
+type VariantButton = 'normal' | 'ghost';
+
+interface ButtonProps extends PrimitiveButton {
   // props from components
+  variant?: VariantButton;
+  weight?: Weight;
 }
 
-const Button: FC<ButtonProps> = (props) => {
-  const title = "hello, I'm component";
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    { children, className, variant = 'normal', weight = 'regular', ...props },
+    ref
+  ) => {
+    const classNameButton = cn(
+      s.button,
+      s[variant],
+      `font-${weight}`,
+      className
+    );
 
-  return <div className={cn(s.container)}>{title}</div>;
-};
+    return (
+      <button ref={ref} className={classNameButton} {...props}>
+        {children}
+      </button>
+    );
+  }
+) as FC<ButtonProps>;
 
 export default Button;
 export type { ButtonProps };
