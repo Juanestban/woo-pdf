@@ -9,6 +9,29 @@
   --secondary-dark: #003f55;
   --font-stack: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  /* fonts size */
+  --woo-small-size: 14px;
+  --woo-normal-size: 16px;
+  --woo-large-size: 18px;
+  --woo-x-large-size: 22px;
+
+  /* margin */
+  --woo-margin-0: 0px;
+  --woo-margin-05: 5px;
+  --woo-margin-10: 10px;
+  --woo-margin-15: 15px;
+  --woo-margin-20: 20px;
+  --woo-margin-25: 25px;
+  --woo-margin-30: 30px;
+  --woo-margin-35: 35px;
+  --woo-margin-40: 40px;
+  --woo-margin-45: 45px;
+  --woo-margin-50: 50px;
+  --woo-margin-55: 55px;
+
+  /* radius */
+  --woo-radius-button: 5px;
 }
 
 *,
