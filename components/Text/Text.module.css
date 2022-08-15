@@ -1,0 +1,4 @@
+.normalText {
+  font-family: var(--font-stack);
+  font-size: var(--woo-normal-size);
+}
