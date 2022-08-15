@@ -1,0 +1,33 @@
+.container {
+  border: 1px solid var(--primary-light);
+  display: flex;
+  align-items: center;
+  padding: var(--woo-margin-05) var(--woo-margin-10);
+  border-radius: var(--woo-radius-button);
+  background-color: transparent;
+  transition: background-color 500ms ease;
+  cursor: pointer;
+}
+
+.container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 500ms ease;
+}
+
+.leading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trailing {
+  margin-left: var(--woo-margin-15);
+}
+
+.folderName {
+  max-width: 10rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: none;
+}
