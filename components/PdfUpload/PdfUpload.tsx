@@ -1,5 +1,7 @@
-import { FC } from 'react';
+import { FC, ChangeEvent } from 'react';
 import cn from 'classnames';
+import { usePdfViewContext } from '@woo-pdf/contexts';
+import { Pdf } from '../Pdf';
 
 import s from './PdfUpload.module.css';
 
@@ -8,9 +10,35 @@ interface PdfUploadProps {
 }
 
 const PdfUpload: FC<PdfUploadProps> = (props) => {
-  const title = "hello, I'm component";
+  const { init } = usePdfViewContext();
 
-  return <div className={cn(s.container)}>{title}</div>;
+  const handleChangeFile = (event: ChangeEvent<HTMLInputElement>) => {
+    const { files } = event.target;
+    console.log('handleChange');
+
+    if (!!files && files.length > 0) {
+      const file = files[0];
+      init(file);
+    }
+  };
+
+  return (
+    <div className={cn(s.container)}>
+      <input
+        type="file"
+        style={{
+          width: 100,
+          height: 40,
+          backgroundColor: '#09f',
+          padding: 5,
+          color: 'white',
+        }}
+        onChange={handleChangeFile}
+      />
+
+      <Pdf />
+    </div>
+  );
 };
 
 export default PdfUpload;
