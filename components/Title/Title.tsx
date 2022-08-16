@@ -18,7 +18,6 @@ type PrimitiveTitle = DetailedHTMLProps<
 >;
 
 interface TitleProps extends PrimitiveTitle {
-  // props from components
   tag?: 'h1' | 'h2' | 'h3' | 'h4';
   weight?: Weight;
 }

@@ -9,10 +9,9 @@ type PrimitiveButton = DetailedHTMLProps<
   HTMLButtonElement
 >;
 
-type VariantButton = 'normal' | 'ghost';
+type VariantButton = 'normal' | 'ghost' | 'bordered';
 
 interface ButtonProps extends PrimitiveButton {
-  // props from components
   variant?: VariantButton;
   weight?: Weight;
 }

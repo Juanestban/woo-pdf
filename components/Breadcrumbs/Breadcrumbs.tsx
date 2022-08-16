@@ -12,7 +12,9 @@ interface BreadcrumbsProps {
 const Breadcrumbs: FC<BreadcrumbsProps> = (props) => {
   const length = 5;
   const [residuos] = useState(
-    Array.from({ length }).map((_, idx) => `Folder ${idx + 1}`)
+    Array.from({ length }).map((_, idx) =>
+      idx === 0 ? '/' : `Folder ${idx + 1}`
+    )
   );
   const [bread, setBread] = useState(
     Array.from({ length }).map((_, idx) => `Folder ${idx + 1}`)
@@ -28,9 +30,6 @@ const Breadcrumbs: FC<BreadcrumbsProps> = (props) => {
       );
       setBread(filtered);
     }
-    // if (bread.length <= 4) {
-    //   setBread(residuos);
-    // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

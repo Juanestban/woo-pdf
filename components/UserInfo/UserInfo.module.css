@@ -1,0 +1,56 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperImage {
+  margin-right: var(--woo-margin-10);
+  border: 2px solid var(--primary-light);
+  margin: var(--woo-margin-0);
+  padding: var(--woo-margin-0);
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.buttonUserInfo {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.advanceInfoUser {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: absolute;
+  background-color: var(--primary-dark);
+  border: 1px solid var(--primary-light);
+  padding: var(--woo-margin-10);
+  border-radius: 5px;
+  right: 0;
+  bottom: -105px;
+  box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1),
+    inset 0 0 0 1px var(--shadow-inset);
+}
+
+.advanceInfoUser ul {
+  margin-top: var(--woo-margin-25);
+}
+
+.advanceInfoUser ul,
+.advanceInfoUser ul li,
+.advanceInfoUser ul li button {
+  width: 100%;
+}
+
+.iconLogout {
+  margin-right: var(--woo-margin-05);
+}
+
+.advanceInfoUser.hidden {
+  display: none;
+}

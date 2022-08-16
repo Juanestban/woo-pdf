@@ -1,7 +1,7 @@
 body[data-theme='light'] {
   --gradiant: rgba(79, 91, 98, 0.5);
   --text-color: var(--black);
-  --body-background-color: var(--primary-light);
+  --body-background-color: var(--white);
 }
 
 body[data-theme='dark'] {
