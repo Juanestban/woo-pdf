@@ -3,7 +3,6 @@
   background-color: transparent;
   color: var(--white-color);
   font-size: var(--woo-regular-size);
-  border-radius: 5px;
   padding: 6px 8px;
   cursor: pointer;
   display: flex;
@@ -11,13 +10,24 @@
   align-items: center;
 }
 
-/* variant normal */
-.button.normal {
+/* variant primary */
+.button.primary {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.button.primary:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+/* variant secondary */
+.button.secondary {
   background-color: #09f;
   border-color: transparent;
 }
 
-.button.normal:hover {
+.button.secondary:hover {
   background-color: #09ff09;
   border-color: transparent;
 }

@@ -10,4 +10,5 @@
 
 .headerRight {
   display: flex;
+  position: relative;
 }

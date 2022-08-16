@@ -15,15 +15,18 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
   const featureHandleTheme = false;
+  const featureSearchBar = false;
 
   return (
     <header className={cn(s.header)}>
       <div className={s.headerLeft}>
         <Title>Woo pdf</Title>
       </div>
-      <div className={s.headerCenter}>
-        <SearchBar />
-      </div>
+      {featureSearchBar && (
+        <div className={s.headerCenter}>
+          <SearchBar />
+        </div>
+      )}
       <nav className={s.headerRight}>
         {/* improvement */}
         {featureHandleTheme && (

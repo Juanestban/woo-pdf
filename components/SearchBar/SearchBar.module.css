@@ -1,3 +1,46 @@
 .container {
-  border: 1px solid #09f;
+  width: 40vw;
+  display: flex;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: var(--woo-margin-05);
+  border: 1px solid var(--primary-light);
+}
+
+.inputSearch {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid transparent;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.wrapper:focus-within {
+  border-color: var(--secondary-light);
+}
+
+.searchIconLeft {
+  visibility: hidden;
+}
+
+.wrapper:focus-within .searchIconLeft {
+  visibility: visible;
+}
+
+.buttonIconClose {
+  margin-right: var(--woo-margin-05);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.buttonIcon {
+  width: 60px;
+  background-color: var(--primary-light);
 }

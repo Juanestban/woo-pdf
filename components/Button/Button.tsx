@@ -1,4 +1,10 @@
-import { FC, DetailedHTMLProps, ButtonHTMLAttributes, forwardRef } from 'react';
+import {
+  FC,
+  DetailedHTMLProps,
+  ButtonHTMLAttributes,
+  forwardRef,
+  CSSProperties,
+} from 'react';
 import cn from 'classnames';
 
 import s from './Button.module.css';
@@ -9,16 +15,24 @@ type PrimitiveButton = DetailedHTMLProps<
   HTMLButtonElement
 >;
 
-type VariantButton = 'normal' | 'ghost' | 'bordered';
+type VariantButton = 'primary' | 'secondary' | 'ghost' | 'bordered';
 
 interface ButtonProps extends PrimitiveButton {
   variant?: VariantButton;
   weight?: Weight;
+  borderRadius?: '0px' | '5px';
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { children, className, variant = 'normal', weight = 'regular', ...props },
+    {
+      children,
+      className,
+      variant = 'primary',
+      weight = 'regular',
+      borderRadius = '5px',
+      ...props
+    },
     ref
   ) => {
     const classNameButton = cn(
@@ -27,9 +41,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       `font-${weight}`,
       className
     );
+    const css: CSSProperties = { borderRadius };
 
     return (
-      <button ref={ref} className={classNameButton} {...props}>
+      <button ref={ref} className={classNameButton} style={css} {...props}>
         {children}
       </button>
     );

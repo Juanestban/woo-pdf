@@ -1,5 +1,5 @@
 .container {
-  position: relative;
+  /* position: relative; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +32,7 @@
   padding: var(--woo-margin-10);
   border-radius: 5px;
   right: 0;
-  bottom: -105px;
+  bottom: -390%;
   box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1),
     inset 0 0 0 1px var(--shadow-inset);
 }
@@ -45,6 +45,16 @@
 .advanceInfoUser ul li,
 .advanceInfoUser ul li button {
   width: 100%;
+}
+
+.profileContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.profileContainer picture {
+  margin-right: var(--woo-margin-10);
 }
 
 .iconLogout {

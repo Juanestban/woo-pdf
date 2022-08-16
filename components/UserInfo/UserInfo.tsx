@@ -11,7 +11,29 @@ import s from './UserInfo.module.css';
 interface UserInfoProps {
   logo?: string;
   username: string;
+  // email
+  // firstname
 }
+
+const ProfileImage = ({
+  size = 25,
+  logo,
+}: {
+  size?: number;
+  logo?: string;
+}) => (
+  <picture className={s.wrapperImage}>
+    {logo ? (
+      <Image
+        src="https://google.com"
+        alt="woo-pdf-image-logo"
+        sizes={size.toString()}
+      />
+    ) : (
+      <Icon name="FiUser" size={size} />
+    )}
+  </picture>
+);
 
 const UserInfo: FC<UserInfoProps> = ({ username, logo }) => {
   const { toggle, handleToggle } = useToggle();
@@ -23,16 +45,13 @@ const UserInfo: FC<UserInfoProps> = ({ username, logo }) => {
         variant="ghost"
         onClick={handleToggle}
       >
-        <picture className={s.wrapperImage}>
-          {logo ? (
-            <Image src="https://google.com" alt="woo-pdf-image-logo" />
-          ) : (
-            <Icon name="FiUser" size={25} />
-          )}
-        </picture>
+        <ProfileImage logo={logo} />
       </Button>
       <div className={cn(s.advanceInfoUser, !toggle && s.hidden)}>
-        <Text>{username}</Text>
+        <div className={s.profileContainer}>
+          <ProfileImage logo={logo} size={30} />
+          <Text>{username}</Text>
+        </div>
         <ul>
           <li>
             <Button variant="bordered">

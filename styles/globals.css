@@ -41,8 +41,8 @@
   --woo-font-weight-bold: 800;
 
   /* shadow */
-  --shadow-1: rgba(0, 0, 0, 0.1);
-  --shadow-2: rgba(0, 0, 0, 0.2);
+  --shadow-1: rgba(255, 255, 255, 0.1); /* Alternative  => rgba(0, 0, 0, 0.1) */
+  --shadow-2: rgba(255, 255, 255, 0.02); /* Alternative => rgba(0, 0, 0, 0.2) */
   --shadow-inset: rgba(255, 255, 255, 0.05);
 }
 
@@ -66,6 +66,11 @@ h2,
 h3,
 h4 {
   margin: var(--woo-margin-0);
+}
+
+input {
+  font-family: var(--font-stack);
+  font-size: var(--woo-normal-size);
 }
 
 a {
