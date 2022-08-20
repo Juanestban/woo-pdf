@@ -9,6 +9,8 @@ interface PdfUploadProps {
   // props from components
 }
 
+// warning => advised for delete
+
 const PdfUpload: FC<PdfUploadProps> = (props) => {
   const { init } = usePdfViewContext();
 

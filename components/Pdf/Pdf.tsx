@@ -6,7 +6,7 @@ import s from './Pdf.module.css';
 interface PdfProps {
   // file: File;
 }
-
+// warning => advised for delete
 const Pdf: FC<PdfProps> = () => {
   const { view, page, handleChange, nextPage, prevPage } = usePdfViewContext();
 
