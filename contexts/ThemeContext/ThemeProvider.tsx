@@ -5,7 +5,8 @@ import {
   useContext,
   ReactNode,
 } from 'react';
-import { storage } from '../../config/keystorage';
+import { storage } from 'config/keystorage';
+import { noop } from 'utils/mock';
 
 type Theme = 'light' | 'dark';
 
@@ -20,13 +21,15 @@ interface ThemeContextProps {
 
 const ThemeContext = createContext<ThemeContextProps>({
   theme: 'dark',
-  toggleTheme: () => {},
+  toggleTheme: noop,
 });
+
+const { local: lStorage } = storage;
 
 function ThemeProvider({ children }: ThemeProviderProps) {
   const isDarkModeSO = window.matchMedia('(prefers-color-scheme:dark)').matches;
   const [theme, setTheme] = useState<Theme>(() => {
-    const item = window.localStorage.getItem(storage.local.theme);
+    const item = window.localStorage.getItem(lStorage.theme);
 
     if (item === null) return isDarkModeSO ? 'dark' : 'light';
 
@@ -36,7 +39,7 @@ function ThemeProvider({ children }: ThemeProviderProps) {
   const toggleTheme = () => {
     setTheme((prevTheme) => {
       const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
-      window.localStorage.setItem(storage.local.theme, newTheme);
+      window.localStorage.setItem(lStorage.theme, newTheme);
 
       return newTheme;
     });
